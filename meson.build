@@ -1,4 +1,4 @@
-project('evatest', 'c', version: '1.0')
+project('evatest', 'c', version: '1.1')
 
 if get_option('TAP')
 	add_project_arguments('-DEVATEST_TAP', language: 'c')
