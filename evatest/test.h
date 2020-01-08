@@ -18,6 +18,24 @@
 
 #define END_TEST                                                               \
 	do {                                                                       \
+		printf("1..%u\n", test);                                               \
+	} while (0)
+
+#define TEST(c)                                                                \
+	do {                                                                       \
+		test++;                                                                \
+		if (!(c)) {                                                            \
+			printf("not ");                                                    \
+			errs[err] = test;                                                  \
+			err++;                                                             \
+		}                                                                      \
+		printf("ok %u - %s:%d: %s\n", test, __FILE__, __LINE__, #c);           \
+	} while (0)
+
+#else
+
+#define END_TEST                                                               \
+	do {                                                                       \
 		if (err == 0)                                                          \
 			printf(GREEN "OK" NOCOLOR "\n");                                   \
 		else {                                                                 \
@@ -39,24 +57,6 @@
 			err++;                                                             \
 		} else                                                                 \
 			printf(GREEN "\tOK" NOCOLOR "\n");                                 \
-	} while (0)
-
-#else
-
-#define END_TEST                                                               \
-	do {                                                                       \
-		printf("1..%u\n", test);                                               \
-	} while (0)
-
-#define TEST(c)                                                                \
-	do {                                                                       \
-		test++;                                                                \
-		if (!(c)) {                                                            \
-			printf("not ");                                                    \
-			errs[err] = test;                                                  \
-			err++;                                                             \
-		}                                                                      \
-		printf("ok %u - %s:%d: %s\n", test, __FILE__, __LINE__, #c);           \
 	} while (0)
 #endif
 
