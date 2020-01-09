@@ -14,7 +14,7 @@
 	size_t err = 0, test = 0;                                                  \
 	size_t errs[TEST_MAX]
 
-#if EVATEST_TAP
+#ifdef EVATEST_TAP
 
 #define END_TEST                                                               \
 	do {                                                                       \
